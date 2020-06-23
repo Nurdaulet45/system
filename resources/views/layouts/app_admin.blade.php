@@ -116,7 +116,7 @@
                 
             <li><a href="{{ route('system.admin.incidents') }}"><i class="fa fa-cogs"></i> <span>Управления инцидентами</span></a></li>
                 @endcan
-            <li><a href="{{ route('system.admin.logs') }}"><i class="fa fa-list"></i> <span>Инциденты(Лог)</span></a></li>
+            <li><a href="{{ route('system.'. Auth::user()['roles'][0]['name'].'.logs') }}"><i class="fa fa-list"></i> <span>Инциденты(Лог)</span></a></li>
 
             @can('roles','permissions')
             <li class="treeview">
@@ -183,7 +183,7 @@
                 @can('incident_done')
                     <li><a href="{{ route('system.specialist.incidents.done')}}"><i class="fa fa-check-square-o"></i> <span>Выполнено</span></a></li>
                 @endcan
-                <li><a href="{{ route('system.admin.incidents.chart')}}"><i class="fa fa fa-line-chart"></i> <span>Графика</span></a></li>
+                <li><a href="{{ route('system.'. Auth::user()['roles'][0]['name'].'.incidents.chart')}}"><i class="fa fa fa-line-chart"></i> <span>Графика</span></a></li>
 
             </ul>
 
